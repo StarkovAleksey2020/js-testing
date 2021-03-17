@@ -16,6 +16,7 @@ module.exports = {
             'localhost:8080',
           ],
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {

@@ -1,3 +1,3 @@
-export default function getLocal() {
+function getLocal() {
     
 }

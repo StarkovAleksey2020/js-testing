@@ -1,7 +1,12 @@
 'use strict';
 
 import getNYDate from './modules/get-ny-date';
+import signLocal from './modules/sign-local';
 
 const output = document.querySelector('.output');
+const local = signLocal();
+output.textContent = local;
 
-output.innerHTML = getNYDate().toUTCString();
+
+//const output = document.querySelector('.output');
+//output.innerHTML = getNYDate().toUTCString();
