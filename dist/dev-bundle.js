@@ -215,14 +215,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_get_ny_date__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_get_ny_date__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_sign_local__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/sign-local */ "./src/modules/sign-local.js");
 /* harmony import */ var _modules_sign_local__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_sign_local__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_get_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/get-cookie */ "./src/modules/get-cookie.js");
 
 
 
 
-var output = document.querySelector('.output');
-var local = _modules_sign_local__WEBPACK_IMPORTED_MODULE_1___default()();
-output.textContent = local; //const output = document.querySelector('.output');
+
+var output = document.querySelector('.lang');
+var lang = (0,_modules_get_cookie__WEBPACK_IMPORTED_MODULE_2__.default)('local');
+console.log('lang: ', lang);
+
+if (!lang) {
+  lang = _modules_sign_local__WEBPACK_IMPORTED_MODULE_1___default()();
+}
+
+output.textContent = lang; //const output = document.querySelector('.output');
 //output.innerHTML = getNYDate().toUTCString();
+
+/***/ }),
+
+/***/ "./src/modules/get-cookie.js":
+/*!***********************************!*\
+  !*** ./src/modules/get-cookie.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getCookie)
+/* harmony export */ });
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
 
 /***/ }),
 
@@ -10098,7 +10124,7 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("7322124f9d7da25f47c9")
+/******/ 		__webpack_require__.h = () => ("f2d7d01d073435746fbe")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
