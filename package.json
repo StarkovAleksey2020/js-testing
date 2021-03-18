@@ -1,28 +1,13 @@
 {
-  "dependencies": {
-    "jshint": "^2.12.0",
-    "selenium-webdriver": "^4.0.0-beta.2"
-  },
   "name": "js-testing",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/register": "^7.13.8",
-    "babel-loader": "^8.2.2",
-    "bluebird": "^3.7.2",
-    "chai": "^4.3.4",
-    "mocha": "^8.3.2",
-    "webpack": "^5.26.0",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
-  },
+  "description": "",
+  "main": "test-ui.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.config.js",
-    "dev": "webpack serve --config webpack.dev.config.js",
-    "test": "mocha test.js",
-    "test-ui": "node test-ui.js"
+    "serve": "cross-env NODE_ENV=development webpack serve",
+    "dev": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -35,5 +20,27 @@
     "url": "https://github.com/StarkovAleksey2020/js-testing/issues"
   },
   "homepage": "https://github.com/StarkovAleksey2020/js-testing#readme",
-  "description": ""
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.1.3",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "jshint": "^2.12.0"
+  }
 }
