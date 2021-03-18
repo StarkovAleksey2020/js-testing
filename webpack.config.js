@@ -3,6 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const mode = process.env.NODE_ENV;
 
@@ -37,6 +38,22 @@ module.exports = {
         }),
         new CopyPlugin({
           patterns: [{ from: 'favicon', to: 'favicon' }]
+        }),
+        new ImageMinimizerPlugin({
+          minimizerOptions: {
+            plugins: [
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
+              ['svgo', {
+                plugins: [
+                  {
+                    removeViewBox: false,
+                  },
+                ]
+              }]
+            ]
+          }
         }),
     ],
     module: {
